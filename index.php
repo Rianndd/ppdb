@@ -87,6 +87,7 @@ $daftar_sekolah = $result->fetch_all(MYSQLI_ASSOC);
                             </td>
                             <td>
                                 <a href="#" class="btn btn-info text-white">Lihat Profil</a>
+                                <a href="delete.php?id=<?= $row['id'] ?>" class="btn btn-danger text-white">Hapus Profil</a>
                             </td>
                         </tr>
                     <?php } ?>
