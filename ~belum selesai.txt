@@ -1,0 +1,2 @@
+1. Belum ada multi-role user
+2. Belum ada Register

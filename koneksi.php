@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $namahost = "localhost";
     $user = "root";
     $password = "";

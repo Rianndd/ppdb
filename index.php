@@ -1,6 +1,14 @@
 <?php
 
 require_once('koneksi.php');
+
+if ($_SESSION['username'] == null) {
+    echo "<script>
+    alert('Silakan Login terlebih dahulu!');
+    window.location.replace('login.php');
+    </script>";
+}
+
 $sql = "SELECT * FROM daftar_sekolah";
 $result = $conn->query($sql);
 
@@ -40,6 +48,8 @@ $daftar_sekolah = $result->fetch_all(MYSQLI_ASSOC);
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Tambah Data
                 </button>
+                <h3>Selamat datang, <?= $_SESSION['nama'] ?></h3>
+                <a href="logout.php" class="btn btn-danger">Keluarr</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
@@ -88,6 +98,7 @@ $daftar_sekolah = $result->fetch_all(MYSQLI_ASSOC);
                             <td>
                                 <a href="#" class="btn btn-info text-white">Lihat Profil</a>
                                 <a href="delete.php?id=<?= $row['id'] ?>" class="btn btn-danger text-white">Hapus Profil</a>
+                                <a href="update.php?id=<?= $row['id'] ?>" class="btn btn-warning text-white">Update Profil</a>
                             </td>
                         </tr>
                     <?php } ?>
